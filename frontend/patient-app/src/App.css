@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+button {
+  color: #444;
+  background-color: #f3f3f3;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.login-container {
+  width: 50%;
+  margin: 0 25%;
+}
+
+.appointment-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+
+.appointment-item svg {
+  font-size: 1.2rem;
+  margin: 16px 5px;
+}

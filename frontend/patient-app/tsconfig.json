@@ -1,0 +1,14 @@
+//_tsconfig.json_
+
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "noImplicitAny": true,
+      "module": "esnext",
+      "target": "es5",
+      "jsx": "react-jsx",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "NodeNext"
+    }
+}

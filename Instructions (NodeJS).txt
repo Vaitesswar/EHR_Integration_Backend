@@ -1,0 +1,33 @@
+--- Preliminary ---
+Download node.js and npm
+Open Command Prompt
+Check their versions (node -v & npm -v)
+Create a new folder and add a entry point file and then npm init.
+Add a .gitignore file.
+***INSTALL PACKAGES IN THE CORRECT package.json file"
+npm install (if you have a package.json file)
+npm install express
+npm install -g nodemon
+npm i dotenv
+npm install mongodb
+npm install mongoose
+npm i express-async-handler
+npm install graphql@15.3.0 express-graphql
+npm install keycloak-connect --save
+npm install express-session --save
+npm install cors
+npm install -g ts-node
+Download Keycloak (https://github.com/keycloak/keycloak/releases) -> Extract (tar -xvzf filename.tar.gz in command prompt as admin)
+	- https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51
+Set JAVA_HOME as environment variable
+	- "https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/"
+	- "https://stackoverflow.com/questions/32038017/java-home-is-not-set-unexpected-result-may-occur-set-java-home-to-the-director"
+	- setx /m JAVA_HOME "C:\Program Files\Java\jdk-20"
+	- echo %JAVA_HOME%
+	- Restart command prompt
+Go to ./bin (kc.bat start-dev)
+	- Access Keycloak using http://localhost:8080
+In "package.json" file, add the following commands under "scripts":
+    "start": "node server.ts",
+    "dev": "nodemon server.ts"
+To start the application, run the command "npm run dev".

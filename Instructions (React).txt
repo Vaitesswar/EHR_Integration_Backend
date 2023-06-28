@@ -1,0 +1,71 @@
+--- Preliminary ---
+Download node.js and npm
+Open Command Prompt
+Check their versions (node -v & npm -v)
+Run npm init and npm install create-react-app
+Create a new react application accordingly in the desired folder (npx create-react-app first-app)
+Test if the react application works (npm start)
+Change the name of page in index.html
+Replace favicon.ico with desired logo of page
+npm install react-router-dom
+npm install @types/react-dom@^18.0.0
+npm install react-bootstrap bootstrap
+npm install -D typescript ts-loader @types/node @types/react @types/react-dom
+Add tsconfig.json file and add the line "jsx": "react-jsx"
+
+--- Typescript config ---
+https://dev.to/shivampawar/setup-react-application-using-typescript-and-webpack-2kn6
+
+--- Components ---
+Under source folder, create a new folder called components and add new components (.js files) in them.
+import React from 'react' to denote that the component will be a react component in each .js file.
+Class vs function based components can be created
+
+--- Props ---
+Create generic properties within components (e.g. props.example for function/this.props.example for class)
+Combining 2 or more methods together in a single function using React.Fragment (Empty container)
+
+--- Events ---
+Common events: onClick, onChange -> onNAMEOFEVENT
+
+--- States ---
+- Immutable (Cannot change values once assigned)
+*Props get passed to the component externally (similar to function parameters) whereas state is managed within the component internally (similar to variables declared within a function).
+
+--- Conditional Displays ---
+Use if-else statements
+
+--- Loops & Keys ---
+Use map function for loops
+Key stands for the primary key in the database to access other records
+
+--- Routers ---
+Helps to navigate between pages
+Install external router (npm install react-router-dom) -> Check under package.json for the installed package
+Create new routing variable in index.js (Link the associated component with the corresponding route path)
+
+--- Styled Components ---
+npm install styled-components
+
+--- Hooks ---
+Allows states and effects to be used in functions. Previously, states and effects can only be used in classes and not functions. Hence, this substitutes the use of class components.
+
+--- Fonts ---
+Use Font Awesome for font styling (Download the fonts, icons and other beautifying things)
+https://fontawesome.com/docs/web/use-with/react/
+Check under package.json for the installed packages
+
+--- Django CORS ---
+Allows cross resource sharing between django and react (python -m pip install django-cors-headers)
+Check https://github.com/adamchainz/django-cors-headers for full details
+
+--- Context ---
+Allows states to accessed globally by all components. This eliminates the need for child-parent-child communication which makes it complicated
+in large applications.
+
+--- Router ---
+npm install react-router-dom (To create multiple pages)
+
+--- Cookies ---
+npm install react-cookie
+User does not need to login again as token will be stored as a cookie in memory from first login.
