@@ -4,11 +4,12 @@
 4) docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
 5) Log in to http://localhost:9000/
 	- login: admin
-	- password: admin
+	- password: admin/P@ssword9
 6) Download scanner from https://docs.sonarqube.org/9.8/analyzing-source-code/scanners/sonarscanner/
 7) Unzip the scanner zip file and shift it to "C:\Program Files"
 8) Rename the folder as "Sonar Cloud"
 9) Open Command Prompt (as admin) NOT TERMINAL
 10) set PATH=%PATH%;"C:\Program Files\Sonar Cloud\bin"
 11) Change the location in command prompt to project folder (cd <PROJECT_PATH>)
-12) Run the code given in SonarQube page with token
+12) Add sonar-project.properties in project folder and enter "sonar.exclusions = **/node_modules/**"
+13) Run the code given in SonarQube page with token
