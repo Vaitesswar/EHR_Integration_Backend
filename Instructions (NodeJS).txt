@@ -2,6 +2,7 @@
 Download node.js and npm
 Open Command Prompt
 Check their versions (node -v & npm -v)
+set PATH=%PATH%;"C:\Program Files\nodejs"
 Create a new folder and add a entry point file and then npm init.
 Add a .gitignore file.
 ***INSTALL PACKAGES IN THE CORRECT package.json file"

@@ -10,8 +10,8 @@ const hostname = process.env.hostname;
 const port = process.env.port;
 app.use(cors({origin: process.env.cors}));
 app.use(express.json()); // For properly formatting the request into json
-//const keycloak = require('./config/keycloak-config.js').initKeycloak();
-//app.use(keycloak.middleware());
+const keycloak = require('./config/keycloak-config.ts').initKeycloak();
+app.use(keycloak.middleware());
 
 // Database connection
 const connectDb = require("./config/dbConnection");
@@ -21,7 +21,7 @@ connectDb();
 app.use("/patients", require("./restAPI/patientRoutes"));
 app.use("/doctors", require("./restAPI/doctorRoutes"));
 app.use("/appointments", require("./restAPI/appointmentRoutes"));
-//app.use("", require("./restAPI/userRoutes"));
+app.use("", require("./restAPI/userRoutes"));
 
 /*
  GraphQL routes

@@ -1,0 +1,41 @@
+version: '3.8'
+
+networks:
+  identity_network:
+    driver: bridge
+
+services:
+  identity-db:
+    image: postgres:14
+    volumes:
+      - ./docker-data/audit-log-me-identity/database:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    networks:
+      - identity_network      
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak"]
+      interval: 5s
+      timeout: 300s
+      retries: 50
+    restart: unless-stopped
+
+  identity:
+    build: ./ # Location of Docker file
+    image: internalproject.azurecr.io/patient-app-identity:latest # Name of image file
+    ports: 
+      - 8080:8080
+      - 8443:8443
+    networks:
+      - identity_network           
+    env_file:
+      - .env
+    #volumes:
+      #- ./import/:/opt/keycloak/import # Saving the internal realm-config file in docker to an external folder called "import"
+
+    depends_on:
+      identity-db:
+        condition: service_healthy
+    entrypoint: ["/opt/keycloak/bin/kc.sh", "start-dev", "--import-realm"]        

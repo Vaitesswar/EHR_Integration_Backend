@@ -1,18 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const keycloak = require('../config/keycloak-config.js').getKeycloak();
+const keycloak = require('../config/keycloak-config.ts').getKeycloak();
 
-router.get('/user', keycloak.protect(), function(req, res){
+router.get('/user', keycloak.protect(), function(req:any, res:any){
     res.send("Hello User");
 });
 
-/*
-router.get('/all-user', keycloak.enforcer(['patient-resource:view-scope'], {
-    //resource_server_id: 'cura-api-client'
-}), function(req, res){
+
+router.get('/allUser', keycloak.enforcer(['appointment-resource:view-scope'], {
+    resource_server_id: 'patient-api-client'
+}), function(req:any, res:any){
     res.send("Hello All User");
 });
-*/
 
 module.exports = router;

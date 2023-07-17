@@ -6,3 +6,21 @@
 username:admin
 password:adminsecret
 
+--- Others ---
+
+SETUP:
+1) docker build -t internalproject.azurecr.io/patient-app-identity:latest .
+2) docker image ls
+3) docker run -d -p 8080:8080 internalproject.azurecr.io/patient-app-identity
+
+OR
+
+1) docker compose up
+
+USEFUL COMMANDS:
+docker ps
+docker ps -a
+docker logs <container id>
+
+docker image rm <image id>
+

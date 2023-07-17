@@ -1,6 +1,6 @@
-projectKey=Patient-backend-noNodeMods
+projectKey=Test
 serverUrl=http://localhost:9000
 serverVersion=10.1.0.73491
-dashboardUrl=http://localhost:9000/dashboard?id=Patient-backend-noNodeMods
-ceTaskId=AYkjn82lrN-AIvB0uTB1
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkjn82lrN-AIvB0uTB1
+dashboardUrl=http://localhost:9000/dashboard?id=Test
+ceTaskId=AYkpnNETlzL2hiW1kJF8
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkpnNETlzL2hiW1kJF8

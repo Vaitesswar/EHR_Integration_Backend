@@ -1,38 +1,27 @@
 var session = require('express-session');
 var Keycloak = require('keycloak-connect');
 
-let _keycloak;
-
 var keycloakConfig = {
-    "realm": 'predictz-realm',
+    "realm": 'cura-realm',
     "auth-server-url": 'http://localhost:8080',
     "ssl-required": 'external',
-    "resource": 'patient-app-client',
+    "resource": 'patient-api-client',
     "public-client": false,
     "confidential-port": 0,
     //"min-time-between-jwks-requests" : 0,
     //bearerOnly: true,
-    //"secret": 'AeG32kXTSDeYRBJnb1ZDVJ193hSnFff7'
+    "secret": 'cEZ6ExfI7boconYT4wIrH3KUdxEEngHX'
 };
 
+var memoryStore = new session.MemoryStore();
+const keycloak = new Keycloak({ store: memoryStore }, keycloakConfig);
+
 function initKeycloak() {
-    if (_keycloak) {
-        console.warn("Trying to init Keycloak again!");
-        return _keycloak;
-    } 
-    else {
-        console.log("Initializing Keycloak...");
-        var memoryStore = new session.MemoryStore();
-        _keycloak = new Keycloak({ store: memoryStore }, keycloakConfig);
-        return _keycloak;
-    }
+        return keycloak;
 }
 
 function getKeycloak() {
-    if (!_keycloak){
-        console.error('Keycloak has not been initialized. Please called init first.');
-    } 
-    return _keycloak;
+    return keycloak;
 }
 
 module.exports = {
