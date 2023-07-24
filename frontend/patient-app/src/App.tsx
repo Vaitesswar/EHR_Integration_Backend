@@ -19,12 +19,13 @@ function App() {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${keycloak.token}`
         }
     })
         .then(resp => resp.json()) // Convert response to JSON
         .then(resp => setAppointments(resp)) // Set the response in movies
         .catch(error => console.log(error))
-  }, [])
+  })
 
   function JsonDataDisplay(){
     const DisplayData=appointments.map(

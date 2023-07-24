@@ -19,12 +19,13 @@ function CreateAppt() {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${keycloak.token}`
         }
     })
         .then(resp => resp.json()) // Convert response to JSON
         .then(resp => setPatients(resp)) // Set the response in movies
         .catch(error => console.log(error))
-  }, [])
+  }, [keycloak.token])
 
   const patientChange = (e: React.ChangeEvent<any>) => {
     setPatientSelected(e.target.value);
@@ -40,6 +41,7 @@ function CreateAppt() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${keycloak.token}`
         },
         body: JSON.stringify(body)
     }).then(resp => resp.json())
