@@ -17,35 +17,32 @@ const claims = {
 
 const privateKey = fs.readFileSync("privatekey.pem");
 const JWT = jwt.sign(claims, privateKey, { algorithm: 'RS384' });
-console.log(JWT);
+//console.log(JWT);
 
 // Decoding
 const publicKey = fs.readFileSync("publickey509.pem");
 var decoded = jwt.verify(JWT, publicKey);
-console.log(decoded);
+//console.log(decoded);
 
 // HTTP Requests
 
 async function getPatient(access_token) {
   var data = {};
-  await axios.get("https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Patient/erXuFYUfucBZaryVksYEcMg3", 
+  const response = await axios.get("https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Patient/eq081-VQEgP8drUUqCWzHfw3", 
   { headers: { Authorization: `Bearer ${access_token}` } }
   )
-  .then(function(response) {
-    console.log(response.data.id,response.data.name[0].text)
-    data[response.data.id] = response.data.name[0].text;
-  }).catch(function(error) {
-    console.log("ERROR");
-  }).finally(() => {
-    console.log(data);
-    return data;
-  })
+  //console.log(response.data);
+  //console.log(response.data.id,response.data.name[0].text)
+  data[response.data.id] = response.data.name[0].text;
+  //console.log('getPatientgetPatient:::::::::::', data);
+  return data;
   }
 
 async function login(JWT){
+  //console.log('login called');
   var access_token = "";
   var data = {};
-  await axios.post("https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token", {
+  const response = await axios.post("https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token", {
     "grant_type": "client_credentials",
     "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
     "client_assertion": JWT
@@ -53,24 +50,31 @@ async function login(JWT){
   headers: { 
       "Content-Type": "application/x-www-form-urlencoded"
     }
-  }).then(function(response) {
-    access_token = response.data.access_token;
-  }).catch(function(error) {
-    console.log(error)
-  }).finally(() => {
-    console.log(access_token);
-    data = getPatient(access_token);
-    console.log(data);
-    return data;
   })
-}
-
-async function getData(JWT) {
-  var data = await login(JWT);
+  access_token = response.data.access_token;
+  //console.log('fanlly called');
+  //console.log(access_token);
+  data = await getPatient(access_token);
+  //console.log('login retured: ', data);
   return data;
 }
 
-console.log(getData(JWT));
+async function getData(JWT) {
+  //console.log("getData called");
+  var data = await login(JWT);
+  //console.log("getData returned: ", data);
+  return data;
+}
 
+// console.log(getData(JWT));
 
-
+(async () => {
+  // In a module, once the top-level `await` proposal lands
+  try {
+    const data = await getData(JWT);
+    console.log(data);
+  } catch (e) {
+    // Deal with the fact the chain failed
+    console.log('error: ', e);
+  }
+})();
