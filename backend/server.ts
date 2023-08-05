@@ -31,7 +31,6 @@ const resolvers = require("./graphql/resolvers");
 const server = new ApolloServer ({ typeDefs,resolvers });
 server.applyMiddleware({ app });
 */
-
 // Running the application in server
 app.listen(port, hostname, () => {
     console.log(`Server running on port http://${hostname}:${port}`);

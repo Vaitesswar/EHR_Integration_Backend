@@ -17,7 +17,7 @@ const claims = {
 
 const privateKey = fs.readFileSync("privatekey.pem");
 const JWT = jwt.sign(claims, privateKey, { algorithm: 'RS384' });
-//console.log(JWT);
+console.log(JWT);
 
 // Decoding
 const publicKey = fs.readFileSync("publickey509.pem");
