@@ -1,5 +1,5 @@
 ## Description
-This is a simple web application for doctors to create and monitor patient appointments.
+A web application for doctors to create and monitor patient appointments integrated with Epic on FHIR (https://fhir.epic.com/).
 
 ## Tools used
 1. NodeJS
