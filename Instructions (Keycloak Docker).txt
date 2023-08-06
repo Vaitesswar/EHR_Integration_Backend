@@ -6,8 +6,6 @@
 username:admin
 password:adminsecret
 
---- Others ---
-
 SETUP:
 1) docker build -t internalproject.azurecr.io/patient-app-identity:latest .
 2) docker image ls
@@ -21,6 +19,5 @@ USEFUL COMMANDS:
 docker ps
 docker ps -a
 docker logs <container id>
-
 docker image rm <image id>
 

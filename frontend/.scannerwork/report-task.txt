@@ -1,6 +1,6 @@
-projectKey=Try-fontend
+projectKey=Patient-frontend
 serverUrl=http://localhost:9000
 serverVersion=10.1.0.73491
-dashboardUrl=http://localhost:9000/dashboard?id=Try-fontend
-ceTaskId=AYkjsbdvrN-AIvB0uTCL
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkjsbdvrN-AIvB0uTCL
+dashboardUrl=http://localhost:9000/dashboard?id=Patient-frontend
+ceTaskId=AYkfid0oCijw-jVn_y0W
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkfid0oCijw-jVn_y0W

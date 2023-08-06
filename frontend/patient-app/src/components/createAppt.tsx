@@ -15,7 +15,7 @@ function CreateAppt() {
   const [ datetime, setDatetime ] = useState('');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8001/patients`, {
+    fetch(`http://127.0.0.1:8001/patients/eIXesllypH3M9tAA5WdJftQ3`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -57,8 +57,8 @@ function CreateAppt() {
             <option selected>Select a Patient</option>
                 {patients.map(patient => (
                     <option
-                    key={patient._id}
-                    value={patient._id}
+                    key={patient.FHIR}
+                    value={patient.FHIR}
                     >
                     {patient.name}
                     </option>

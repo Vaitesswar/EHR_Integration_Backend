@@ -47,7 +47,9 @@ const getPatient = asyncHandler(async (req:any, res:any) => {
         const response = await axios.get(`https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Patient/${req.params.id}`, 
         { headers: { Authorization: `Bearer ${access_token}` } }
         )
-        var data = {"FHIR ID":response.data.id, "Patient Name":response.data.name[0].text};
+        var data = [
+            {"FHIR":response.data.id, "name":response.data.name[0].text}
+        ];
         return data;
     }
 

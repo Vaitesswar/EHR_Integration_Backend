@@ -1,6 +1,6 @@
-projectKey=Test
+projectKey=Patient-backend
 serverUrl=http://localhost:9000
 serverVersion=10.1.0.73491
-dashboardUrl=http://localhost:9000/dashboard?id=Test
-ceTaskId=AYkpnNETlzL2hiW1kJF8
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkpnNETlzL2hiW1kJF8
+dashboardUrl=http://localhost:9000/dashboard?id=Patient-backend
+ceTaskId=AYkt_EtFBl-QKXE_T07J
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYkt_EtFBl-QKXE_T07J

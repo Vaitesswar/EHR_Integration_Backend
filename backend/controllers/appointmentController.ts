@@ -47,13 +47,13 @@ const createAppointment = asyncHandler(async (req:any, res:any) => {
         res.status(404);
         throw new Error("Doctor not found");
     }
-    */
-
+    
     const patient = await Patient.findById(patientID);
     if (!patient){
         res.status(404);
         throw new Error("Patient not found");
     }
+    */
 
     const appointment = await Appointment.create({
         patientID, 
