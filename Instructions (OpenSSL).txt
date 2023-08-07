@@ -2,4 +2,6 @@
 2. set PATH=%PATH%;"C:\Program Files\OpenSSL-Win64\bin"
 3. openssl genrsa -out privatekey.pem 2048
 4. openssl req -new -x509 -key privatekey.pem -out publickey509.pem -subj /'x=0/CN=myapp'
+5. Upload the public key in Epic FHIR.
+6. Follow the code in VSCode.
 

@@ -18,6 +18,14 @@ npm install keycloak-connect --save
 npm install express-session --save
 npm install cors
 npm install -g ts-node
+npm i axios
+npm install jwt
+npm i -D jest ts-jest @types/jest
+npm i -D supertest
+npx ts-jest config:init (Configure Jest -> Creates jest.config.ts)
+
+Tutorial on Jest -> https://medium.com/@natnael.awel/how-to-setup-testing-for-typescript-with-express-js-example-83d3efbb6fd4
+
 Download Keycloak (https://github.com/keycloak/keycloak/releases) -> Extract (tar -xvzf filename.tar.gz in command prompt as admin)
 	- https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51
 Set JAVA_HOME as environment variable
@@ -31,4 +39,5 @@ Go to ./bin (kc.bat start-dev)
 In "package.json" file, add the following commands under "scripts":
     "start": "node server.ts",
     "dev": "nodemon server.ts"
+    "test": "jest"
 To start the application, run the command "npm run dev".

@@ -1,13 +1,13 @@
-const asyncHandler = require("express-async-handler");
-const Doctor = require("../models/doctorModel");
-const Appointment = require("../models/appointmentModel");
+var asyncHandler = require("express-async-handler");
+var Doctor = require("../models/doctorModel");
+var Appointment = require("../models/appointmentModel");
 
-const getDoctors = asyncHandler(async (req:any, res:any) => {
+var getDoctors = asyncHandler(async (req:any, res:any) => {
     const doctors = await Doctor.find();
     res.status(200).json(doctors);
 })
 
-const getDoctor = asyncHandler(async (req:any, res:any) => {
+var getDoctor = asyncHandler(async (req:any, res:any) => {
     const doctor = await Doctor.findById(req.params.id);
     if (!doctor){
         res.status(404);
@@ -16,7 +16,7 @@ const getDoctor = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(doctor);
 })
 
-const createDoctor = asyncHandler(async (req:any, res:any) => {
+var createDoctor = asyncHandler(async (req:any, res:any) => {
     const {name, specialty} = req.body;
     if (!name || !specialty){
         res.status(400);
@@ -29,7 +29,7 @@ const createDoctor = asyncHandler(async (req:any, res:any) => {
     res.status(201).json(doctor);
 })
 
-const updateDoctor = asyncHandler(async (req:any, res:any) => {
+var updateDoctor = asyncHandler(async (req:any, res:any) => {
     const doctor = await Doctor.findById(req.params.id);
     if (!doctor){
         res.status(404);
@@ -44,7 +44,7 @@ const updateDoctor = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(updatedDoctor);
 })
 
-const deleteDoctor = asyncHandler(async (req:any, res:any) => {
+var deleteDoctor = asyncHandler(async (req:any, res:any) => {
     const doctor = await Doctor.findById(req.params.id);
     if (!doctor){
         res.status(404);

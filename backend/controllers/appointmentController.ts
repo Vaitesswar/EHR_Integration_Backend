@@ -1,14 +1,14 @@
-const asyncHandler = require("express-async-handler");
-const Appointment = require("../models/appointmentModel");
-const Patient = require("../models/patientModel");
-const Doctor = require("../models/doctorModel");
+var asyncHandler = require("express-async-handler");
+var Appointment = require("../models/appointmentModel");
+var Patient = require("../models/patientModel");
+var Doctor = require("../models/doctorModel");
 
-const getAppointments = asyncHandler(async (req:any, res:any) => {
+var getAppointments = asyncHandler(async (req:any, res:any) => {
     const appointments = await Appointment.find();
     res.status(200).json(appointments);
 })
 
-const getAppointment = asyncHandler(async (req:any, res:any) => {
+var getAppointment = asyncHandler(async (req:any, res:any) => {
     const appointment = await Appointment.findById(req.params.id);
     if (!appointment){
         res.status(404);
@@ -17,7 +17,7 @@ const getAppointment = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(appointment);
 })
 
-const getByPatient = asyncHandler(async (req:any, res:any) => {
+var getByPatient = asyncHandler(async (req:any, res:any) => {
     const appointment = await Appointment.find({ "patientID": req.params.id });
     if (!appointment){
         res.status(404);
@@ -26,7 +26,7 @@ const getByPatient = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(appointment);
 })
 
-const getByDoctor = asyncHandler(async (req:any, res:any) => {
+var getByDoctor = asyncHandler(async (req:any, res:any) => {
     const appointment = await Appointment.find({ "doctorID": req.params.id });
     if (!appointment){
         res.status(404);
@@ -35,7 +35,7 @@ const getByDoctor = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(appointment);
 })
 
-const createAppointment = asyncHandler(async (req:any, res:any) => {
+var createAppointment = asyncHandler(async (req:any, res:any) => {
     const {patientID, doctorID, appointmentDateTime} = req.body;
     if (!patientID || !doctorID || !appointmentDateTime){
         res.status(400);
@@ -63,7 +63,7 @@ const createAppointment = asyncHandler(async (req:any, res:any) => {
     res.status(201).json(appointment);
 })
 
-const updateAppointment = asyncHandler(async (req:any, res:any) => {
+var updateAppointment = asyncHandler(async (req:any, res:any) => {
     const appointment = await Appointment.findById(req.params.id);
     if (!appointment){
         res.status(404);
@@ -91,7 +91,7 @@ const updateAppointment = asyncHandler(async (req:any, res:any) => {
     res.status(200).json(updatedAppointment);
 })
 
-const deleteAppointment = asyncHandler(async (req:any, res:any) => {
+var deleteAppointment = asyncHandler(async (req:any, res:any) => {
     const appointment = await Appointment.findById(req.params.id);
     if (!appointment){
         res.status(404);

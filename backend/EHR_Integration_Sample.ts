@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
-const fs = require('fs');
-const axios = require("axios");
+var fs = require('fs');
+var axios = require("axios");
 
 // Encoding
 const curTime = Math.ceil(Date.now()/1000); // in seconds (NOT MILLISECONDS)
@@ -26,7 +26,7 @@ var decoded = jwt.verify(JWT, publicKey);
 
 // HTTP Requests
 
-async function getPatient(access_token) {
+async function getPat(access_token) {
   var data = {};
   const response = await axios.get("https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Patient/eq081-VQEgP8drUUqCWzHfw3", 
   { headers: { Authorization: `Bearer ${access_token}` } }
@@ -54,7 +54,7 @@ async function login(JWT){
   access_token = response.data.access_token;
   //console.log('fanlly called');
   //console.log(access_token);
-  data = await getPatient(access_token);
+  data = await getPat(access_token);
   //console.log('login retured: ', data);
   return data;
 }

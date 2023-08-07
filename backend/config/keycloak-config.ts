@@ -14,7 +14,7 @@ var keycloakConfig = {
 };
 
 var memoryStore = new session.MemoryStore();
-const keycloak = new Keycloak({ store: memoryStore }, keycloakConfig);
+var keycloak = new Keycloak({ store: memoryStore }, keycloakConfig);
 
 function initKeycloak() {
         return keycloak;

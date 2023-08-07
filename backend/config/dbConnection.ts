@@ -1,6 +1,6 @@
-const { default: mongoose } = require("mongoose");
+var { default: mongoose } = require("mongoose");
 
-const connectDb = async () => {
+var connectDb = async () => {
     try {
         const connect = await mongoose.connect(process.env.CONNECTION_STRING);
         console.log("Databasec connected:", 

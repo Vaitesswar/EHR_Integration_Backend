@@ -1,7 +1,6 @@
-const express = require("express");
-const router = express.Router();
-
-const keycloak = require('../config/keycloak-config.ts').getKeycloak();
+var express = require("express");
+var router = express.Router();
+var keycloak = require('../config/keycloak-config.ts').getKeycloak();
 
 router.get('/user', keycloak.protect(), function(req:any, res:any){
     res.send("Hello User");

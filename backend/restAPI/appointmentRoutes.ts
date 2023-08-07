@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const keycloak = require('../config/keycloak-config.ts').getKeycloak();
-const {   getAppointments, 
+var express = require("express");
+var router = express.Router();
+var keycloak = require('../config/keycloak-config.ts').getKeycloak();
+var {   getAppointments, 
           getAppointment,
           getByPatient,
           getByDoctor,
