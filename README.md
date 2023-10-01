@@ -8,6 +8,6 @@ This is a web application for doctors to create and monitor patient appointments
 4. MongoDB
 
 ## Usage
-Frontend: npm start
-Backend: npm run dev
-Keycloak: docker compose up
+- Frontend: npm start
+- Backend: npm run dev
+- Keycloak: docker compose up
